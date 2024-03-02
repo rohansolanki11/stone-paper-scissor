@@ -1,3 +1,23 @@
+let stone = document.querySelector('#stone');
+let paper = document.querySelector('#paper');
+let scissor = document.querySelector('#scissor');
+let message = document.querySelector('#result');
+
+stone.addEventListener("click",function(){
+    let computerSelection = getComputerChoice();
+    message.textContent = playRound("stone",computerSelection);
+});
+
+paper.addEventListener("click",function(){
+    let computerSelection = getComputerChoice();
+    message.textContent = playRound("paper",computerSelection);
+});
+
+scissor.addEventListener("click",function(){
+    let computerSelection = getComputerChoice();
+    message.textContent = playRound("scissors",computerSelection);
+});
+
 function getComputerChoice(){
     let n = Math.floor(Math.random()*3);
     if(n==0) return "Stone";

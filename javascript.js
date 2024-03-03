@@ -2,20 +2,45 @@ let stone = document.querySelector('#stone');
 let paper = document.querySelector('#paper');
 let scissor = document.querySelector('#scissor');
 let message = document.querySelector('#result');
+let scores = document.querySelector('#scores');
+let userScore = 0;
+let computerScore = 0;
 
 stone.addEventListener("click",function(){
     let computerSelection = getComputerChoice();
     message.textContent = playRound("stone",computerSelection);
+    scores.textContent = "User score:" + userScore + " Computer Score: " + computerScore;
+    if(userScore===5){
+        scores.textContent = "You are the winner!"
+    }
+    else if(computerScore===5){
+        scores.textContent = "Computer wins!"
+    }
 });
 
 paper.addEventListener("click",function(){
     let computerSelection = getComputerChoice();
     message.textContent = playRound("paper",computerSelection);
+    scores.textContent = "User score:" + userScore + " Computer Score: " + computerScore;
+    if(userScore===5){
+        scores.textContent = "You are the winner!"
+    }
+    else if(computerScore===5){
+        scores.textContent = "Computer wins!"
+    }
 });
 
 scissor.addEventListener("click",function(){
     let computerSelection = getComputerChoice();
     message.textContent = playRound("scissors",computerSelection);
+    scores.textContent = "User score:" + userScore + " Computer Score: " + computerScore;
+
+    if(userScore===5){
+        scores.textContent = "You are the winner!"
+    }
+    else if(computerScore===5){
+        scores.textContent = "Computer wins!"
+    }
 });
 
 function getComputerChoice(){
@@ -28,10 +53,12 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
     if(playerSelection=="stone"){
         if(computerSelection=="Paper"){
-            return "You lose! Paper beats stone";
+            computerScore++;
+            return "You lose! Paper beats stone.";
         }
         else if(computerSelection=="Scissors"){
-            return "You win! Stone beats scissors";
+            userScore++;
+            return "You win! Stone beats scissors.";
         }
         else{
             return "Draw!";
@@ -39,10 +66,12 @@ function playRound(playerSelection, computerSelection){
     }
     else if(playerSelection=="paper"){
         if(computerSelection=="Scissors"){
-            return "You lose! Scissors beat paper";
+            computerScore++;
+            return "You lose! Scissors beat paper.";
         }
         else if(computerSelection=="Stone"){
-            return "You win! Paper beats stone";
+            userScore++;
+            return "You win! Paper beats stone.";
         }
         else{
             return "Draw!";
@@ -50,10 +79,12 @@ function playRound(playerSelection, computerSelection){
     }
     else if(playerSelection=="scissors"){
         if(computerSelection=="Stone"){
-            return "You lose! Stone beats scissors";
+            computerScore++;
+            return "You lose! Stone beats scissors.";
         }
         else if(computerSelection=="Paper"){
-            return "You win! Scissors beat paper";
+            userScore++;
+            return "You win! Scissors beat paper.";
         }
         else{
             return "Draw!";

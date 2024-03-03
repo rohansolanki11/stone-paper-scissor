@@ -1,0 +1,11 @@
+body{
+    background-color:blanchedalmond;
+    text-align: center;
+}
+
+button{
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: blue;
+    border-radius: 4px;
+}
